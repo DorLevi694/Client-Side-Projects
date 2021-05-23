@@ -41,7 +41,7 @@ var cal2 = new Calculator(3, 7);
 var cal3 = new Calculator(6, 8);
 
 cal1.log();
-/*
+
 
 cal2.log();
 cal3.log();
@@ -52,4 +52,3 @@ console.log("check the setTimeout function:")
 setTimeout(     cal3.log.bind(cal3) , 1000);
 
 
-*/
