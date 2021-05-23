@@ -1,0 +1,14 @@
+{
+  "name": "ex1-js",
+  "version": "1.0.0",
+  "description": "first js exercise",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dor",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
