@@ -36,4 +36,4 @@ var Exam = /** @class */ (function () {
     return Exam;
 }());
 exports.Exam = Exam;
-//# sourceMappingURL=Exam.js.map
+//# sourceMappingURL=exam.js.map

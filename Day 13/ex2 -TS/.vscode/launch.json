@@ -13,7 +13,7 @@
             ],
             "program": "${workspaceFolder}\\main.ts",
             "outFiles": [
-                "${workspaceFolder}/**/*.js"
+                "${workspaceFolder}/bin/**/*.js"
             ]
         }
     ]
