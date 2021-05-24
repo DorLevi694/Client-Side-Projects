@@ -33,8 +33,5 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 
-# Ignore node_modules
-bin/
-
 # Visual Studio 2015
 .vs/
