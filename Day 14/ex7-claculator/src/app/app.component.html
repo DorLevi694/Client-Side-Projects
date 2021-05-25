@@ -1,35 +1,34 @@
-<div>
-  a: <input #num1 type="number" (input)="setA(num1.value)">
-</div>
 
-<div>
-  b: <input #num2 type="number" (input)="setB(num2.value)">
+  <div>
+    a: <input #num1 type="number" (input)="setA(num1.value)">
+  </div>
 
-</div>
+  <div>
+    b: <input #num2 type="number" (input)="setB(num2.value)">
+  </div>
 
 
-<div>
-  <button #Go (click)="claculate()">GO!</button>
-</div>
+  <div>
+    <button #Go (click)="claculate()">GO!</button>
+  </div>
 
-<div #results [hidden]="!flag">
-  <div #resultAdd1>
-    <span>
+  <div #results [hidden]="!flag">
+    <div #resAdd>
+      <span>
         {{a}} + {{b}} = {{resultAdd}}
-    </span>  
-  </div>
-  
-  <div #resultSub1 >
-    <span>
+      </span>
+    </div>
+
+    <div #resSub>
+      <span>
         {{a}} - {{b}} = {{resultSub}}
-    </span>  
-  </div>
+      </span>
+    </div>
 
-  
-  <div #resultMul1 >
-    <span>
+
+    <div #resMul>
+      <span>
         {{a}} * {{b}} = {{resultMul}}
-    </span>  
+      </span>
+    </div>
   </div>
-</div>
-
