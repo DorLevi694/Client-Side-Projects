@@ -1,0 +1,19 @@
+
+:host{
+    display:grid;
+
+    grid-template-rows: auto  1fr;
+    grid-template-columns: 1fr 200px;
+}
+
+
+
+div{
+    border: 3px solid rgb(0, 255, 149);
+}
+
+.title-area{
+    grid-column: 1/-1;
+    grid-row:1/1;
+}
+
