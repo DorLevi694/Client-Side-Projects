@@ -16,7 +16,9 @@ import { HistoryService } from './services/history.service';
   imports: [
     BrowserModule
   ],
-  providers: [AdditionService, HistoryService],
+  providers: [
+    AdditionService, 
+    HistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
