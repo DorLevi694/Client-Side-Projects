@@ -1,0 +1,28 @@
+{
+    "movies":[
+        {
+            "id": 1,
+            "caption": "movie1",
+            "description": "desc1",
+            "poster": "blabla1"
+        },
+        {
+            "id": 2,
+            "caption": "movie2",
+            "description": "desc2",
+            "poster": "blabla2"
+        },
+        {
+            "id": 3,
+            "caption": "movie3",
+            "description": "desc3",
+            "poster": "blabla3"
+        },
+        {
+            "id": 4,
+            "caption": "movie4",
+            "description": "desc4",
+            "poster": "blabla4"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+
+    <input #movieId type="number">
+    <button (click)="search(movieId.value)">Go!</button>
+
+    {{movie$ | async | json}}
