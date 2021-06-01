@@ -1,0 +1,19 @@
+
+
+nav{
+    margin: 4px;
+    display: flex;
+    flex-direction:row;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    background-color: lightblue;
+    padding: 4px;
+}
+
+nav a.i-am-here{
+    background-color:rgb(72, 121, 138)
+
+}
