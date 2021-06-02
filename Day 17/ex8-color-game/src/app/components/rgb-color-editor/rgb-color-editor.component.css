@@ -1,0 +1,24 @@
+
+
+:host{
+    display : flex;
+    flex-direction: column;
+
+}
+
+input{
+    width: 100px;
+    height: 20px;
+    margin: 4px;
+}
+
+label {
+    margin: 4px;
+    width: 180px;
+}
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+}

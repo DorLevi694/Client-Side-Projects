@@ -1,0 +1,14 @@
+
+
+
+
+<app-rgb-color-editor></app-rgb-color-editor>
+ 
+
+<app-color-box class="selectedColorBox" [color]="(myColor$ | async)"></app-color-box>
+
+<app-color-box class="randomColorBox"  [color]="(randomColor$ | async)"></app-color-box>
+ 
+<button #randColorButton (click)="setRandomColor()"> Random Color!</button>
+
+<label *ngIf="(succses$|async)"><h1> succses </h1>  </label>

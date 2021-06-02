@@ -1,0 +1,12 @@
+<div>
+    <label>r: </label> 
+    <input #red type="number"   min="0" max="255" (input)="setRedValue(red.value)">
+</div>
+<div>
+    <label>g: </label>
+    <input #green type="number" min="0" max="255" (input)="setGreenValue(green.value)">
+</div>
+<div>
+     <label>b: </label>
+     <input #blue type="number" min="0" max="255" (input)="setBlueValue(blue.value)">
+</div>
