@@ -1,0 +1,12 @@
+<input #keyword (input)="setKeyword(keyword.value)">
+
+
+<div #resultDiv>
+    <ul>
+       <li 
+            *ngFor="let item of (results$ |async)"
+       [style.background]="item.code">
+            {{item.name}}
+        </li>
+    </ul>
+</div>
