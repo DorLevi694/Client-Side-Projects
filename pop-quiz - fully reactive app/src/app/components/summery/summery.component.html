@@ -1,0 +1,25 @@
+<!-- <ul>
+    <li>
+        <div>
+            <div>
+                {{newQuestion.caption}}
+            </div>
+            <div>
+                {{ newQuestion.userAnswer}}
+            </div>
+        </div>
+    </li>
+</ul>
+ -->
+
+<ul>
+
+    <li
+        *ngFor="let q of (summeryQuestionList$ | async );let i=index" 
+        class="oneResult" 
+        [class.goodAnswer]="q.userAnswer===q.correctAnswer">
+
+            {{q.caption}} : <br>{{q.answers[q.userAnswer-1]}}
+        </li> 
+
+</ul>

@@ -1,0 +1,16 @@
+<div class="title-area">
+    <app-title caption='Pop Quiz'></app-title>
+</div>
+
+<div class="main-area">
+    <app-question-presentor *ngIf="!(isQuizOver$ | async)">   </app-question-presentor>
+
+    <app-quiz-over *ngIf="isQuizOver$ | async"> </app-quiz-over>
+    
+</div>
+
+<div class="summary-area">
+    <app-summery></app-summery>
+</div>
+
+
