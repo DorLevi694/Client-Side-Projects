@@ -1,0 +1,19 @@
+
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}
+
+.item{
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 9px;
+    margin: 10px;
+    text-align: center;
+    
+}
+
+.item:hover{
+        background-color: rgb(108, 189, 108);   
+}

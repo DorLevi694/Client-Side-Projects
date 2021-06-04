@@ -1,0 +1,13 @@
+<div>
+
+    <div class="grid" [ngStyle]="{'grid-template-columns': 'repeat('+size+',1fr)'}">
+    
+        <div class="item" *ngFor="let num of values">
+                {{num.x}} * {{num.y}}
+        </div>
+
+    </div>
+
+
+
+</div>
