@@ -1,9 +1,11 @@
-<div>
+<div class="center">
 
-    <h1>
+    <h1 class="score">
         Your Score Is: {{testResult$ | async}}
     </h1>
 
 
-    <button #ResetGameButton (click)="resetGame()"> Try Again! :) </button>
+    <button class="resetButton" (click)="resetGame()"> Try Again! :) </button>
+
+    <img class="a" src="https://withoutstress.com/wp-content/uploads/2018/10/smiles-250x135.jpg">
 </div>

@@ -1,15 +1,19 @@
 
     li{
-        background-color: rgb(255, 25, 25);
+        background-color: rgb(230, 132, 132);
+        margin: 4px;
+        padding: 8px;
     }
 
     .oneResult{
         border-radius: 10px;
-        border: 3px solid rosybrown;
+        border: 3px solid rgb(0, 0, 0);
         margin: 3px;
+        padding: 8px;
+
     }
 
 
     li.goodAnswer{
-        background-color: rgb(72, 255, 72);
+        background-color: rgb(101, 218, 101);
     }

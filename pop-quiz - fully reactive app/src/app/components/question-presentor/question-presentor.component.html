@@ -1,7 +1,7 @@
 <div *ngIf="(currentQuestion$ |async) as question">
 
 <div class=captionQuestion >
-    <h1>{{ question.caption }}</h1>
+    <h3>{{ question.caption }}</h3>
 </div>
 
 <div>
@@ -9,7 +9,7 @@
         <li 
             *ngFor="let ans of question.answers;let i = index" 
              (click)="answerChosen(i+1)">
-            <h2>{{ans}}</h2>
+            <h4>{{ans}}</h4>
         </li>
     </ul>
 </div>

@@ -1,13 +1,41 @@
 
-
+:host{
+    text-align: center;  margin: 4px;
+    padding: 8px;
+}
 
 div{
-    display: grid;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     box-sizing: content-box;
-    background-color: salmon;
+    background-color: rgb(83, 219, 79);
     border-radius: 10px;
-    border: 5px greenyellow
+    border: 5px rgb(53, 178, 209);
+    align-self: center;
+    margin: 4px;
+    padding: 8px;
+}
+
+button{
+    border-radius: 10px;
+    border: 5px rgb(0, 0, 0);
+    margin: 4px;
+    padding: 8px;
 }
 
 
+.resetButton{
+    border: 1px solid rgb(0, 0, 0);
+}
 
+.score{
+    text-align: center;  
+    margin: 4px;
+    padding: 8px;
+}
+
+.a {
+    border-radius: 10px;
+  }
