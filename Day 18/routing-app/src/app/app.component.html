@@ -2,15 +2,13 @@
 
 <div>
   <a routerLink="home">Home</a> |
-  <a routerLink="kefel/3">Kefel(3*3)</a> |
-  <a routerLink="kefel/5">Kefel(5*5)</a> |
-  <a routerLink="kefel/10">Kefel(10*10)</a> |
+  <a routerLink="kefel" [queryParams]="{sizenum:3}">Kefel(3*3)</a> |
+  <a routerLink="kefel" [queryParams]="{sizenum:5}">Kefel(5*5)</a> |
+  <a routerLink="kefel" [queryParams]="{sizenum:10}">Kefel(10*10)</a> |
   <a routerLink="about">About</a> |
+  <a routerLink="login">Login</a> |
 </div>
 
-<marquee> blablablablablablablablabla</marquee>
+<marquee>1234567890123456789012345678901234567890</marquee>
 
-<button (click)="goToAbout()">go to About</button>
-<router-outlet>
-
-</router-outlet>
+<router-outlet>   </router-outlet>
