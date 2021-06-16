@@ -1,0 +1,52 @@
+    
+    :host {
+        display: grid;
+        grid-template-rows: 100px 100px 70px 1fr;
+        text-align: center;
+        background-color: rgb(78, 221, 121);
+    }
+
+    .joke {
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        text-align: left;        
+        align-self: center;
+        margin: 10px;
+        background-color: rgb(125, 255, 164);    
+        border-radius: 3px;
+        border: 1px solid white;
+    }
+    .joke label{
+            margin: 7px;    
+            padding-left: 20px;
+            border: rgb(48, 110, 67);    
+
+        }
+
+    .buttons {
+        grid-row: 3;
+        display: grid;
+        grid-template-columns: 1fr 100px 20px 100px 1fr;
+    }
+
+    button{
+        align-self: flex-start;
+        width: 100px;
+        height:  50px;        
+    }
+
+    .previous{
+        grid-column: 2;
+    }
+
+    .next{
+        grid-column: 4;
+    }
+
+    .border{
+        border-radius: 3px; 
+        margin:2px;
+        border: 1px solid rgb(0, 255, 179);
+    }
+

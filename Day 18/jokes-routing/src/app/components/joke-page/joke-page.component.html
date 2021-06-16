@@ -1,0 +1,13 @@
+
+<div *ngIf="(joke$ | async) as joke" class="joke">
+    <label class="setup border">Setup: {{joke.setup}}</label>
+    <label class="punchline border">Punchline: {{joke.punchline}}</label>
+</div>
+
+<div class="buttons">
+    <button class="previous border" (click)="previousJoke()" *ngIf="(hasPrevious$ | async)">Previous</button>
+    <button class="next border"  (click)="nextJoke()" *ngIf="(hasNext$ | async)">Next</button>
+</div>
+
+
+<button class="newSearch border" (click)="newSearch()">Start New Search</button>

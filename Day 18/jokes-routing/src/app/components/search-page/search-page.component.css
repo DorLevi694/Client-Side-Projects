@@ -1,0 +1,36 @@
+
+:host{
+    display:grid;
+    grid-template-columns: 1fr 300px  1fr;
+    grid-template-rows: 100px 50px 50px 1fr;
+    background-color: rgb(125, 255, 164);    
+}
+
+
+input{
+    grid-column: 2;
+    grid-row: 2 ;
+    align-self: center;
+    width:80%;
+    height: 80%;
+    border: 2px solid black;
+    border-radius: 3px;
+    text-align: center;
+}
+
+button{
+    grid-column: 2;
+    grid-row: 3;
+
+    width:80%;
+    height: 80%;
+    border: 2px solid black;
+    border-radius: 3px;
+    background-color: rgb(221, 154, 54);
+
+    
+}
+
+button:hover{    
+    background-color: rgb(145, 100, 33);
+}

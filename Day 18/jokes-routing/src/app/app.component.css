@@ -1,0 +1,9 @@
+:host{
+    display:grid;
+}
+
+router-outlet{
+    width: 0px;
+    height: 0px;
+    display: none;
+}
