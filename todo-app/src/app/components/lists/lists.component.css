@@ -1,0 +1,41 @@
+:host {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+#pageName {
+    color: red;
+    display: grid
+}
+
+
+.lists-area{
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: center;
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border: 5px solid rgb(128, 214, 240);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(105, 189, 189);
+}
+
+.box:hover{
+    background-color: rgb(40, 102, 102);
+    cursor: pointer;
+}
+
+
+.material-icons.orange600 { color: #FB8C00; }
+.material-icons.md-48 { font-size: 48px; }

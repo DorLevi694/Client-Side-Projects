@@ -1,0 +1,17 @@
+
+:host{
+    display: grid;
+    grid-template-rows: 50px auto 1fr;
+}
+
+router-outlet{
+    display: none;
+}
+
+.title{
+    background-color: rgb(121, 197, 197);
+    text-decoration: aquamarine;
+    font-size: xx-large;
+    font-weight: bolder;
+    justify-content: center;
+}

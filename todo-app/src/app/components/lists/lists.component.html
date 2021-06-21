@@ -1,0 +1,18 @@
+<label id="pageName">
+    Lists > Edit
+</label>
+
+<div class="lists-area">
+
+    <div class="box" *ngFor="let list of (todoLists$|async)" (click)="goToList(list.id)">
+        <span class="material-icons md-48 icon-list orange600">{{list.imageUrl}}</span>    
+        <label>{{list.id}}</label>
+
+    </div>
+
+    <div class="box" (click)="goToList(-1)">
+        <span class="material-icons md-48 icon-list orange600">add_circle_outline</span>    
+        <label>New List</label>
+
+    </div>
+</div>

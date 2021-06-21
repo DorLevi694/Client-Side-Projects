@@ -1,0 +1,19 @@
+<label id="pageName">
+    Active Items
+</label>
+
+
+
+
+<div class="items-area flex-col">
+
+    <div class="item-line flex-row pointer" *ngFor="let item of (activeItems$|async)">
+        <mat-icon class="item-icon cursor" (click)="endTask(item)">check_box_outline_blank</mat-icon>
+        <label class="item-desc">{{item.caption}}</label>
+    </div>
+
+    
+
+</div>
+
+

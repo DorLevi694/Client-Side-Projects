@@ -1,0 +1,36 @@
+
+#pageName {
+    color: red;
+    display: grid
+} 
+
+.items-area {
+    align-self: flex-start;
+    margin: 10px;
+}
+
+.item-line {
+    margin-top: 10px;
+}
+
+.item-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    align-self: center;
+    display: grid;
+}
+
+.item-desc {
+    height: 100%;
+    display: grid;
+}
+
+#newItem input {
+    width: 300px;
+    margin-right: 5px;
+}
+
+.pointer {
+    cursor: pointer;
+}

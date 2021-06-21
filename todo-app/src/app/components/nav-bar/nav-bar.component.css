@@ -1,0 +1,27 @@
+:host{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(158, 238, 238);
+}
+
+a{
+    padding-right:5px;
+    padding-left:10px;
+    text-decoration: none;
+    display: flex;
+    height: auto;
+}
+
+a:hover{
+    background-color: rgb(105, 189, 189);
+}
+
+a.routeHere{
+    background-color: rgb(80, 156, 156);
+}
+
+.seperator{
+    flex: 1; 
+}

@@ -1,0 +1,33 @@
+<label id="pageName"> Lists > ListName</label>
+
+<div class="main-area" *ngIf="list$|async as list">
+
+    <span class="material-icons md-48 icon-list">{{list.imageUrl}}</span>
+
+    <label id="listDesc">{{list.description}}</label>
+
+    <div class=" flex-row button-area">
+        <button class="action-button" id="newListBtn" [routerLink]="['/','lists',-1,'edit']">New List</button>
+        <button class="action-button" id="EditBtn" [routerLink]="['edit']" >Edit</button>
+        <button class="action-button" id="deleteBtn" (click)="deleteList(list.id)">Delete</button>
+    </div>
+
+</div>
+
+<div class="items-area flex-col">
+
+    <div class="item-line flex-row pointer" *ngFor="let item of (items$|async)">
+        <span class="material-icons" *ngIf="!item.isCompleted" (click)="endTask(item)">check_box_outline_blank</span>
+        <span class="material-icons" *ngIf="item.isCompleted">check_box</span>
+        <label class="item-desc">{{item.caption}}</label>
+    </div>
+
+    <div id="newItem" class="item-line flex-row">
+        <mat-icon class="cursor">check_box_outline_blank</mat-icon>
+        <input type="text margin" placeholder=" Add new task">
+
+        <mat-icon >add</mat-icon>
+
+    </div>
+
+</div>

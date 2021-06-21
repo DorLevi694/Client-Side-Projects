@@ -1,0 +1,33 @@
+<div id="mainDiv" class="flex-column">
+
+    <h1>Todos app</h1>
+
+    <h3>by Dor Levi</h3>
+
+    <h5>{{myDate | date: 'shortDate' }}</h5>
+
+    <div id="buttons" class="flex-row">
+        <button [routerLink]="['/','lists','-1','edit']">Create new list</button>
+        <button  [routerLink]="['/','lists']">View all lists</button>
+        <button  [routerLink]="['/','items']">View all items</button>
+    </div>
+
+</div>
+
+<div id="summary" class="flex-row">
+    <div>
+        <label id="countOfLists">{{countOfLists$|async}}</label>
+        <label>Lists</label>
+    </div>
+
+    <div>
+        <label id="countOfItems">{{countOfItems$|async}}</label>
+        <label>Todo Items</label>
+    </div>
+
+    <div>
+        <label id="countOfActiveItems">{{countOfActiveItems$|async}}</label>
+        <label>Active Items</label>
+    </div>
+
+</div>
