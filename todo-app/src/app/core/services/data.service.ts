@@ -4,7 +4,7 @@ import { TodoList } from '../models/entities/todoList';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject, forkJoin, from, Observable, of } from 'rxjs';
-import { every, filter, map, mapTo, switchMap, tap } from 'rxjs/operators';
+import { catchError, every, filter, map, mapTo, switchMap, tap } from 'rxjs/operators';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 
@@ -43,6 +43,18 @@ export class DataService {
     return this.httpClient.get<TodoList>(url);
   }
 
+  async listExistP(id: number): Promise<boolean> {
+    let ret = await this.getList(id).toPromise();
+    return ret == null;
+  }
+
+
+  listExistO(id: number): Observable<boolean> {
+    return this.getList(id).pipe(
+      map(ret => ret != null)
+    );
+  }
+
   getItem(id: number): Observable<TodoItem> {
     let url = `${this.serverUrl}/todoitems/${id}`;
 
@@ -56,26 +68,26 @@ export class DataService {
     );
   }
 
-  saveList(list: TodoList):Observable<TodoList> {
+  saveList(list: TodoList): Observable<TodoList> {
     let url = `${this.serverUrl}/todolists/${list.id}`;
 
     return this.httpClient.put<TodoList>(url, list);
   }
 
 
-  addNewList(newList: TodoList):Observable<TodoList>{
+  addNewList(newList: TodoList): Observable<TodoList> {
     let url = `${this.serverUrl}/todolists`;
-    return this.httpClient.post<TodoList>(url,newList);
+    return this.httpClient.post<TodoList>(url, newList);
   }
 
-  addNewItem(newItem: TodoItem):Observable<TodoItem>{
+  addNewItem(newItem: TodoItem): Observable<TodoItem> {
     let url = `${this.serverUrl}/todoitems`;
-    return this.httpClient.post<TodoItem>(url,newItem);
+    return this.httpClient.post<TodoItem>(url, newItem);
   }
 
   deleteItem(itemId: number): Observable<any> {
     let url = `${this.serverUrl}/todoitems/${itemId}`;
-    
+
     return this.httpClient.delete<any>(url);
   }
 
@@ -88,27 +100,28 @@ export class DataService {
 
   doneTask(item: TodoItem): Observable<TodoItem> {
     let url = `${this.serverUrl}/todoitems/${item.id}`;
-    item.isCompleted=true;
-    return this.httpClient.put<TodoItem>(url,item);
+    item.isCompleted = true;
+    return this.httpClient.put<TodoItem>(url, item);
   }
 
-  getCountOfLists(){
+  getCountOfLists(): Observable<number> {
     return this.getAllLists().pipe(
       map(list => list.length)
     );
   }
 
-  getCountOfItems(){
+  getCountOfItems(): Observable<number> {
     return this.getAllItems().pipe(
       map(list => list.length)
     );
   }
 
-  getCountOfActiveItems(){
+  getCountOfActiveItems(): Observable<number> {
     return this.getAllActiveItems().pipe(
       map(list => list.length)
     );
   }
+
 
   // async deleteList(id: number): Promise<any> {
 

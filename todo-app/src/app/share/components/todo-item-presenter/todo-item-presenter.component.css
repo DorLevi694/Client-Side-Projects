@@ -1,0 +1,30 @@
+
+:host {
+    display: grid;
+}
+
+.item-line {
+    margin-top: 10px;
+}
+
+
+.pointer {
+    cursor: pointer;
+}
+
+
+.item-desc {
+    height: 100%;
+    display: grid;
+}
+
+.completed{
+    text-decoration: line-through;
+    text-decoration-color: rgb(255, 0, 0);
+    text-decoration-style: 10px solid;
+    opacity: 0.9;
+}
+
+.opacity{
+    opacity:0.5;
+}

@@ -1,0 +1,37 @@
+{
+  "todoLists": [
+    {
+      "id": 1,
+      "caption": "Work",
+      "color": "green",
+      "description": "some things to do in work this week and today ",
+      "imageUrl": "work"
+    }
+  ],
+  "todoItems": [
+    {
+      "caption": "make the todo-server api works",
+      "listId": "1",
+      "isCompleted": false,
+      "id": 1
+    },
+    {
+      "caption": "make all methods work in it ",
+      "listId": "1",
+      "isCompleted": false,
+      "id": 2
+    },
+    {
+      "caption": "repair te desin",
+      "listId": "1",
+      "isCompleted": false,
+      "id": 3
+    },
+    {
+      "caption": "make the service reactive",
+      "listId": "1",
+      "isCompleted": false,
+      "id": 4
+    }
+  ]
+}

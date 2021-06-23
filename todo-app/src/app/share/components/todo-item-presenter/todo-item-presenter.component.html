@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+<div class="item-line flex-row pointer">
+    <span class="material-icons" *ngIf="!isCompleted">check_box_outline_blank</span>
+    <span class="material-icons opacity" *ngIf="isCompleted">done_outline</span>
+    <label [ngClass]="{completed: isCompleted}" class="item-desc">
+            {{caption}}
+    </label>
+</div>

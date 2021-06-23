@@ -1,33 +1,46 @@
-<label id="pageName"> Lists > ListName</label>
+<label [style.color]="list.color" id="pageName" *ngIf="list$|async as list">
+    Lists > {{list.caption }}
+</label>
 
 <div class="main-area" *ngIf="list$|async as list">
 
-    <span class="material-icons md-48 icon-list">{{list.imageUrl}}</span>
+    <span [style.color]="list.color" class="material-icons md-48 icon-list">{{list.imageUrl}}</span>
 
-    <label id="listDesc">{{list.description}}</label>
+    <div *ngIf="!(deletePush$| async) else deleteTemplate">
+        <label id="listDesc">{{list.description}}</label>
 
-    <div class=" flex-row button-area">
-        <button class="action-button" id="newListBtn" [routerLink]="['/','lists',-1,'edit']">New List</button>
-        <button class="action-button" id="EditBtn" [routerLink]="['edit']" >Edit</button>
-        <button class="action-button" id="deleteBtn" (click)="deleteList(list.id)">Delete</button>
+        <div class="hover flex-row button-area">
+            <button class="action-button" id="newListBtn" [routerLink]="['/','lists',-1,'edit']">New List</button>
+            <button class="action-button" id="EditBtn" [routerLink]="['edit']">Edit</button>
+            <button class="action-button delete" id="deleteBtn" (click)="delete()">Delete</button>
+        </div>
+
     </div>
+    <ng-template #deleteTemplate>
+        <label id="deleteMsg">Are you sure you want delete the list ?</label>
+
+        <div class="flex-row button-area">
+            <button class="action-button cancel" id="cancel" (click)="cancel()">Cancel</button>
+            <button class="action-button delete" id="delete" (click)="deleteList(list.id)">Delete</button>
+        </div>
+    </ng-template>
 
 </div>
 
 <div class="items-area flex-col">
 
-    <div class="item-line flex-row pointer" *ngFor="let item of (items$|async)">
-        <span class="material-icons" *ngIf="!item.isCompleted" (click)="endTask(item)">check_box_outline_blank</span>
-        <span class="material-icons" *ngIf="item.isCompleted">check_box</span>
-        <label class="item-desc">{{item.caption}}</label>
-    </div>
+    <app-todo-item-presenter *ngFor="let item of (items$|async)" [isCompleted]="item.isCompleted"
+        [caption]="item.caption" (click)="endTask(item)">
+    </app-todo-item-presenter>
 
     <div id="newItem" class="item-line flex-row">
-        <mat-icon class="cursor">check_box_outline_blank</mat-icon>
-        <input type="text margin" placeholder=" Add new task">
-
-        <mat-icon >add</mat-icon>
-
+        <mat-icon color="red" class="pointer">check_box_outline_blank</mat-icon>
+        <input type="text margin" [formControl]="newItemControl" placeholder=" Add new task">
+        <button 
+                [disabled]="newItemControl.invalid" 
+                (click)="addItemToList()">
+            <mat-icon >add</mat-icon>
+        </button>
     </div>
 
 </div>

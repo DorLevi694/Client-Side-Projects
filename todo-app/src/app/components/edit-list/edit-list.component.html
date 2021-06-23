@@ -1,48 +1,48 @@
 <label id="pageName">
-    Lists
+    Lists > {{pageTitle$|async}}
 </label>
+
+<label id="title">
+    {{pageTitle$|async}}
+</label>
+
 <div class="form-div">
 
-<form 
-    class="flex-column"
-    [formGroup]="listForm" 
-    *ngIf="listForm" 
-    (ngSubmit)="save()">
+    <form class="flex-column" [formGroup]="listForm" *ngIf="listForm" (ngSubmit)="save()">
 
         <div>
             <label>Caption: </label>
             <input type="text" formControlName="caption">
         </div>
-    
+
         <div>
             <label>Description: </label>
             <textarea rows="3" formControlName="description"></textarea>
         </div>
-    
+
         <div>
             <label>Icon: </label>
-            <select name="icons" formControlName="imageUrl" >
-                <option class="material-icons" value={{i}} 
-                *ngFor="let i of icons"> 
+            <select name="icons" formControlName="imageUrl">
+                <option class="material-icons" value={{i}} *ngFor="let i of icons">
                     {{i}}
-                </option>   
+                </option>
             </select>
         </div>
-    
+
         <div>
             <label>Color: </label>
             <select name="colors" formControlName="color">
-                <option value="blue">blue</option>
-                <option value="red">red</option>
-                <option value="green">green</option>
+                <option [style.background-color]="i" value={{i}} *ngFor="let i of colors">
+                    {{i}}
+                </option>
             </select>
         </div>
-        
+
         <div>
             <button id="save-btn" [disabled]="listForm.invalid">Save</button>
         </div>
-        
- 
-</form>
 
+
+
+    </form>
 </div>
