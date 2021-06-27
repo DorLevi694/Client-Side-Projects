@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { TodoItem } from 'src/app/core/models/entities/todoItem';
+import { Observable } from 'rxjs';
 import { TodoList } from 'src/app/core/models/entities/todoList';
 import { DataService } from 'src/app/core/services/data.service';
 
@@ -25,7 +24,7 @@ export class ListsComponent implements OnInit {
 
   goToList(listId: number) {
     console.log(`ListsComponent: goToList:${listId}`);
-    this.router.navigate(['lists', listId.toString()]);
+    this.router.navigate(['/lists/', listId.toString()]);
   }
 
 

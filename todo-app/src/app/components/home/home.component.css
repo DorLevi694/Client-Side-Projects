@@ -30,9 +30,9 @@
     align-items: center;
     justify-content: center;
 }
+/* 
 
-
-button{
+ button{
     width: 120px;
     height: 65px;
     background-color:bisque;
@@ -43,4 +43,4 @@ button{
 button:hover{
     background-color:rgb(228, 200, 166);
     cursor: pointer;
-}
+}  */

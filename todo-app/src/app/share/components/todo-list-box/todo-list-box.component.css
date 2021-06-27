@@ -1,0 +1,29 @@
+
+.box {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    border: 5px solid rgb(128, 214, 240);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(105, 189, 189);
+    cursor: pointer;
+}
+
+
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
+
+#caption {
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

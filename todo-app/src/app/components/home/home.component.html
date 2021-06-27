@@ -7,25 +7,28 @@
     <h5>{{myDate | date: 'shortDate' }}</h5>
 
     <div id="buttons" class="flex-row">
-        <button [routerLink]="['/','lists','-1','edit']">Create new list</button>
-        <button  [routerLink]="['/','lists']">View all lists</button>
-        <button  [routerLink]="['/','items']">View all items</button>
+        <button mat-button color="accent" [routerLink]="['/','lists','-1','edit']">Create new list</button>
+        <button mat-raised-button   [routerLink]="['/','lists']">View all lists</button>
+        <button mat-flat-button color="warn" [routerLink]="['/','items']">View all items</button>
     </div>
 
 </div>
 
 <div id="summary" class="flex-row">
     <div>
+        <mat-icon >list</mat-icon>
         <label id="countOfLists">{{countOfLists$|async}}</label>
         <label>Lists</label>
     </div>
 
     <div>
+        <mat-icon >rule</mat-icon>
         <label id="countOfItems">{{countOfItems$|async}}</label>
         <label>Todo Items</label>
     </div>
 
     <div>
+        <mat-icon color="green">hourglass_empty</mat-icon>
         <label id="countOfActiveItems">{{countOfActiveItems$|async}}</label>
         <label>Active Items</label>
     </div>

@@ -1,0 +1,19 @@
+<label id="pageName">
+    Lists
+</label>
+
+<div class="lists-area">
+
+    <app-todo-list-box 
+        *ngFor="let list of (todoLists$|async)" 
+        [list]="list"
+        (click)="goToList(list.id)">
+    </app-todo-list-box>
+        
+
+    <app-todo-list-box 
+        (click)="goToList(-1)">
+    </app-todo-list-box>
+    
+         
+</div>

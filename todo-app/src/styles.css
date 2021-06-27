@@ -13,8 +13,8 @@ body,div{
     margin:0px;
     padding:0px;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    cursor: default;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: default; */
 }
 
 
@@ -26,8 +26,8 @@ body,div{
 
 .flex-column {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 html, body { height: 100%; }

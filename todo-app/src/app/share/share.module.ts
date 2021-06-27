@@ -5,13 +5,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { IconsComponent } from './components/icons/icons.component';
 import { TodoItemPresenterComponent } from './components/todo-item-presenter/todo-item-presenter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TodoListBoxComponent } from './components/todo-list-box/todo-list-box.component';
 
 
 
 @NgModule({
   declarations: [
     IconsComponent,
-    TodoItemPresenterComponent
+    TodoItemPresenterComponent,
+    TodoListBoxComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
 
     IconsComponent,
-    TodoItemPresenterComponent
+    TodoItemPresenterComponent,
+    TodoListBoxComponent
   ]
 
 })
