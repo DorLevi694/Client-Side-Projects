@@ -12,19 +12,19 @@
     {
       "caption": "make the todo-server api works",
       "listId": "1",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 1
     },
     {
       "caption": "make all methods work in it ",
       "listId": "1",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 2
     },
     {
       "caption": "repair te desin",
       "listId": "1",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 3
     },
     {

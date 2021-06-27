@@ -24,6 +24,31 @@ export class DataService {
     return this.httpClient.get<TodoList[]>(url);
   }
 
+  getList(id: number): Observable<TodoList> {
+    let url = `${this.serverUrl}/todoLists/${id}`;
+
+    return this.httpClient.get<TodoList>(url);
+  }
+
+  saveList(list: TodoList): Observable<TodoList> {
+    let url = `${this.serverUrl}/todolists/${list.id}`;
+
+    return this.httpClient.put<TodoList>(url, list);
+  }
+
+
+  addNewList(newList: TodoList): Observable<TodoList> {
+    let url = `${this.serverUrl}/todolists`;
+
+    return this.httpClient.post<TodoList>(url, newList);
+  }
+
+  deleteList(listId: number): Observable<any> {
+    let url = `${this.serverUrl}/todolists/${listId}`;
+
+    return this.httpClient.delete<any>(url);
+  }
+
   getAllItems(): Observable<TodoItem[]> {
     let url = `${this.serverUrl}/todoitems`;
 
@@ -31,25 +56,13 @@ export class DataService {
   }
 
   getItemsOfList(listId: number): Observable<TodoItem[]> {
-    return this.getAllItems()
-      .pipe(
-        map(list => list.filter(item => (item.listId == listId)))
-      );
-  }
+    let url = `${this.serverUrl}/todolists/${listId}/items`;
 
-  getList(id: number): Observable<TodoList> {
-    let url = `${this.serverUrl}/todoLists/${id}`;
-
-    return this.httpClient.get<TodoList>(url);
-  }
-
-  async listExistP(id: number): Promise<boolean> {
-    let ret = await this.getList(id).toPromise();
-    return ret == null;
+    return this.httpClient.get<TodoItem[]>(url);
   }
 
 
-  listExistO(id: number): Observable<boolean> {
+  listExist(id: number): Observable<boolean> {
     return this.getList(id).pipe(
       map(ret => ret != null)
     );
@@ -62,24 +75,10 @@ export class DataService {
   }
 
   getAllActiveItems(): Observable<TodoItem[]> {
-    return this.getAllItems().pipe(
-      tap(items => console.log("items: ", items)),
-      map(items => items.filter(item => !item.isCompleted)),
-    );
+    let url = `${this.serverUrl}/todoitems/ActiveItems`;
+
+    return this.httpClient.get<TodoItem[]>(url);
   }
-
-  saveList(list: TodoList): Observable<TodoList> {
-    let url = `${this.serverUrl}/todolists/${list.id}`;
-
-    return this.httpClient.put<TodoList>(url, list);
-  }
-
-
-  addNewList(newList: TodoList): Observable<TodoList> {
-    let url = `${this.serverUrl}/todolists`;
-    return this.httpClient.post<TodoList>(url, newList);
-  }
-
   addNewItem(newItem: TodoItem): Observable<TodoItem> {
     let url = `${this.serverUrl}/todoitems`;
     return this.httpClient.post<TodoItem>(url, newItem);
@@ -91,35 +90,32 @@ export class DataService {
     return this.httpClient.delete<any>(url);
   }
 
-  deleteList(listId: number): Observable<any> {
-    let url = `${this.serverUrl}/todolists/${listId}`;
 
-    return this.httpClient.delete<any>(url);
-  }
 
 
   doneTask(item: TodoItem): Observable<TodoItem> {
     let url = `${this.serverUrl}/todoitems/${item.id}`;
     item.isCompleted = true;
+
     return this.httpClient.put<TodoItem>(url, item);
   }
 
   getCountOfLists(): Observable<number> {
-    return this.getAllLists().pipe(
-      map(list => list.length)
-    );
+    let url = `${this.serverUrl}/todolists/count`;
+
+    return this.httpClient.get<number>(url);
   }
 
   getCountOfItems(): Observable<number> {
-    return this.getAllItems().pipe(
-      map(list => list.length)
-    );
+    let url = `${this.serverUrl}/todoitems/count`;
+
+    return this.httpClient.get<number>(url);
   }
 
   getCountOfActiveItems(): Observable<number> {
-    return this.getAllActiveItems().pipe(
-      map(list => list.length)
-    );
+    let url = `${this.serverUrl}/todoitems/ActiveItems/count`;
+
+    return this.httpClient.get<number>(url);
   }
 
 

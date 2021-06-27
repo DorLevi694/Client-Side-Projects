@@ -26,7 +26,7 @@ export class ListExistGuard implements CanActivate {
     let listId = route.params.listId;
     console.log('ListExistGuard: listId->    ', listId)
 
-    let res = this.dataService.listExistO(listId).pipe(
+    let res = this.dataService.listExist(listId).pipe(
       tap(res => console.log('ListExistGuard: res --->',res)),
       map(res => res == true ? true : false),
       catchError(e => {console.log('ListExistGuard: listId->    ', e); return of(this.router.parseUrl(this.notFoundUrl)); })

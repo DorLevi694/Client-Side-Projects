@@ -59,6 +59,7 @@ export class EditListComponent implements OnInit {
     if (this.listForm.value.id == -1) {
       delete this.listForm.value.id;
       let res = await this.dataService.addNewList(this.listForm.value).toPromise();
+      console.log("edit list - new listId ",res.id);
       this.listForm.value.id = res.id;
     }
     else
