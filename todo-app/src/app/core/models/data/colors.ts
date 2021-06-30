@@ -8,6 +8,5 @@ export const COLORS_NAMES = [
     'lightslategray',
     'green',
     'red',
-    'yellow',
-    'broun'
+    'yellow'
 ];
