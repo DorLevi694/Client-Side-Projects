@@ -3,9 +3,8 @@ import { TodoItem } from '../models/entities/todoItem';
 import { TodoList } from '../models/entities/todoList';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
-import { BehaviorSubject, forkJoin, from, Observable, of } from 'rxjs';
-import { catchError, every, filter, map, mapTo, switchMap, tap } from 'rxjs/operators';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -117,56 +116,6 @@ export class DataService {
 
     return this.httpClient.get<number>(url);
   }
-
-
-  // async deleteList(id: number): Promise<any> {
-
-  //   let temp: TodoItem[] = await this.getItemsOfList(id).toPromise();
-
-  //   temp.forEach(element => {
-  //     this.deleteItem(element.id);
-  //   });
-
-  //   return this.httpClient.delete<any>(`${this.serverUrl}/todoLists/${id}`).toPromise();
-  // }
-
-
-
-
-  // addItem(newItem: TodoItem): Observable<TodoItem> {
-  //   return this.httpClient.post<TodoItem>(`${this.serverUrl}/todoItems`, newItem);
-  // }
-
-
-  // addList(newList: TodoList): Observable<TodoList> {
-  //   return this.httpClient.post<TodoList>(`${this.serverUrl}/todoLists`, newList);
-  // }
-
-
-  // updateItem(item: TodoItem): Observable<TodoItem> {
-  //   return this.httpClient.post<TodoItem>(`${this.serverUrl}/todoItems/${item.id}`, item);
-  // }
-
-
-  // updateList(list: TodoList): Observable<TodoList> {
-  //   return this.httpClient.post<TodoList>(`${this.serverUrl}/todoLists/${list}`, list);
-  // }
-
-
-  // private reloadTodoLists() {
-  //   let res = this.httpClient.get<TodoList[]>(`${this.serverUrl}/todolists`);
-  //   res.pipe(
-  //     map(newValue => this.todoLists$.next(newValue))
-  //   );
-
-  // }
-
-  // private reloadTodoItems() {
-  //   let res = this.httpClient.get<TodoItem[]>(`${this.serverUrl}/todoItems`);
-  //   res.pipe(
-  //     map(newValue => this.todoItems$.next(newValue))
-  //   );
-  // }
 
 }
 
