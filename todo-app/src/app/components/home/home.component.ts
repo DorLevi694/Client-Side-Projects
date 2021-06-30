@@ -18,7 +18,10 @@ export class HomeComponent implements OnInit {
     private dataService:DataService
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.dataService.loadLists();
+    await this.dataService.loadItems();
+
     this.countOfLists$ = this.dataService.getCountOfLists();
     this.countOfItems$ = this.dataService.getCountOfItems();
     this.countOfActiveItems$ = this.dataService.getCountOfActiveItems();

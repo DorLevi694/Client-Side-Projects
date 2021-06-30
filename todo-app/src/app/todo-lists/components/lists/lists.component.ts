@@ -19,7 +19,7 @@ export class ListsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.todoLists$ = this.dataService.getAllLists();
+    this.todoLists$ = this.dataService.getTodoLists();
   }
 
   goToList(listId: number) {

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { TodoItem } from 'src/app/core/models/entities/todoItem';
 import { TodoList } from 'src/app/core/models/entities/todoList';
 import { DataService } from 'src/app/core/services/data.service';
@@ -36,22 +35,20 @@ export class ListComponent implements OnInit {
     this.activatedRoute.params.subscribe(async params => {
       this.listId = params.listId;
       this.list$ = this.dataService.getList(this.listId);
-      this.reloadData();
+      this.items$ = this.dataService.getItemsOfList(this.listId);
+
     });
 
   }
 
-  reloadData() {
-    this.items$ = this.dataService.getItemsOfList(this.listId);
-  }
 
   async endTask(item: TodoItem) {
-    await this.dataService.doneTask(item).toPromise();
+    await this.dataService.doneTask(item);
   }
 
   async deleteList(listId: number) {
     try {
-      await this.dataService.deleteList(listId).toPromise();
+      await this.dataService.deleteList(listId);
       alert("The list has been successfully deleted");
       this.router.navigate(['/lists'])
     }
@@ -72,9 +69,8 @@ export class ListComponent implements OnInit {
       isCompleted: false
     } as TodoItem;
 
-    await this.dataService.addNewItem(newItem).toPromise();
+    await this.dataService.addNewItem(newItem);
     this.newItemControl.reset('');
-    this.reloadData();
   }
 
   delete() {

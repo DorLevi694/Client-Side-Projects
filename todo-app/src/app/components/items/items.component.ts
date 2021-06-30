@@ -25,7 +25,7 @@ export class ItemsComponent implements OnInit {
   }
 
   async endTask(item: TodoItem){
-    await this.dataService.doneTask(item).toPromise();
+    await this.dataService.doneTask(item);
     this.loadItems();
   }
 }

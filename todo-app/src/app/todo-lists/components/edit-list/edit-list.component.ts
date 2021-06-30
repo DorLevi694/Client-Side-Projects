@@ -25,8 +25,6 @@ export class EditListComponent implements OnInit {
 
 
   get description() { return this.listForm.get('description'); }
-  get imageUrl() { return this.listForm.get('imageUrl'); }
-  get color() { return this.listForm.get('color'); }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -67,14 +65,6 @@ export class EditListComponent implements OnInit {
       imageUrl: [list.imageUrl, [Validators.required]]
     });
     this.setTitle(list.id)
-
-    this.listForm.get('imageUrl')!.valueChanges.subscribe(
-      v => console.log("dddddddddd" ,v)
-    );
-    this.listForm.get('imageUrl')!.enable();
-
-
-   //this.listForm.updateValueAndValidity({ onlySelf: true, emitEvent: true });
   }
 
   setTitle(listId: number) {
@@ -90,12 +80,12 @@ export class EditListComponent implements OnInit {
   async save() {
     if (this.listForm.value.id == -1) {
       delete this.listForm.value.id;
-      let res = await this.dataService.addNewList(this.listForm.value).toPromise();
+      let res = await this.dataService.addNewList(this.listForm.value);
       console.log("edit list - new listId ", res.id);
       this.listForm.value.id = res.id;
     }
     else
-      await this.dataService.saveList(this.listForm.value).toPromise();
+      await this.dataService.saveList(this.listForm.value);
 
     this.router.navigate(['lists', this.listForm.value.id]);
   }
