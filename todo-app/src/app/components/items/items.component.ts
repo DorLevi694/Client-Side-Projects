@@ -11,7 +11,7 @@ import { DataService } from 'src/app/core/services/data.service';
 export class ItemsComponent implements OnInit {
 
   activeItems$!: Observable<TodoItem[]>;
-
+  
   constructor(
     private dataService:DataService
   ) { }

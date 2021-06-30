@@ -31,7 +31,6 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("ngOnInit start");
     this.newItemControl = this.formBuilder.control(this.newItem, [Validators.minLength(10), wordsValidator(3)]);
 
     this.activatedRoute.params.subscribe(async params => {
@@ -39,12 +38,6 @@ export class ListComponent implements OnInit {
       this.list$ = this.dataService.getList(this.listId);
       this.reloadData();
     });
-
-
-
-    
-    console.log("ngOnInit done");
-    console.log(this.newItemControl);
 
   }
 
@@ -54,18 +47,10 @@ export class ListComponent implements OnInit {
 
   async endTask(item: TodoItem) {
     await this.dataService.doneTask(item).toPromise();
-    //  this.reloadData();
   }
 
   async deleteList(listId: number) {
     try {
-      //need to go after building the server
-      let items = await this.dataService.getItemsOfList(listId).toPromise();
-
-      for (let item of items) {
-        await this.dataService.deleteItem(item.id).toPromise();
-      }
-      //until here
       await this.dataService.deleteList(listId).toPromise();
       alert("The list has been successfully deleted");
       this.router.navigate(['/lists'])
@@ -76,13 +61,12 @@ export class ListComponent implements OnInit {
     finally {
       this.deletePush$.next(false);
     }
-
-
   }
 
 
   async addItemToList() 
-  {let newItem = {
+  {
+    let newItem = {
       caption: this.newItemControl.value,
       listId: this.listId,
       isCompleted: false

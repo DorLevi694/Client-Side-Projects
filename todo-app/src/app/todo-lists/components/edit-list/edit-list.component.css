@@ -1,59 +1,49 @@
-:host{
+:host {
     display: grid;
     grid-template-rows: auto auto 1fr;
-    
 }
 
 #pageName {
     color: red;
-    display: grid
+    display: grid;
+    margin-left: 10px;
 }
-
 
 #title{
     display: grid;
     font-size: xx-large;
-    color: rgb(30, 210, 186);
+    color: rgb(24, 73, 80);
     text-align: center;
 }
 
-.form-div{
+.form-div {
     justify-content: center;
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
-form{
-    border: 5px solid rgb(0, 217, 255);
-    background-color: rgb(183, 221, 228);
-
-    width: 350px;
-    height: 350px;
+form {
+    border: 2px solid rgba(6, 94, 102, 0.486);
+    background-color: rgb(229, 252, 253);
+    width: 300px;
+    height: 450px;
+    padding-top: 10px;
 }
 
-
-
-form *{
-    display: grid;
+form mat-form-field {
     width: 90%;
     margin-left: 10px;
-}
-
-form div{
     margin-bottom: 10px;
 }
 
-#save-btn{
+#save-btn {
     width: 90px;
     height: 40px;
-    margin-top: 25px;
     margin-right: 15px;
-    border-radius: 5px;
-    font-size: x-large;
+    margin-top: 10px;
     justify-self: flex-end;
 }
 
-
-form .ng-invalid{
-    border:2px solid crimson;
-    outline: none;
+.mat-icon-check {
+    color: rgb(55, 204, 14);
 }

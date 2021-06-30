@@ -1,55 +1,36 @@
 :host {
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 5% 1fr 10%;
+    grid-template-columns: 10% 1fr 10%;
+    
 }
 
 #pageName {
+    grid-column: 1/-1;
     color: red;
-    display: grid
+    display: grid;
+    margin-left: 10px;
 }
 
 .lists-area {
     display: flex;
-    flex-direction: row;
-    flex-flow: row;
-    flex-wrap: wrap;
-    align-items: center;
-    align-self: center;
+    grid-row:3;
+    grid-column: 2;
+    flex-flow: row wrap;
+    /* justify-self: center;
+    align-content: flex-start; */
+    /* justify-self: center; */
+
+    /* align-content: center;    */
+    /* justify-content: flex-start;  */
+    /* align-items:flex-start; */
 }
 
+app-todo-list-box{
+    width: 200px;
+    height: 200px;
+}
 
-.box:hover {
-    background-color: rgb(40, 102, 102);
+.lists *:hover{
     cursor: pointer;
 }
-
-
-.material-icons.orange600 {
-    color: #FB8C00;
-}
-
-.box {
-    width: 250px;
-    height: 250px;
-    margin: 10px;
-    border: 5px solid rgb(128, 214, 240);
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(105, 189, 189);
-}
- 
-#caption {
-    text-align: center;
-    display: inline-block;
-    width: 90%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-
-
-.material-icons.md-48 {
-    font-size: 48px;
-}
-

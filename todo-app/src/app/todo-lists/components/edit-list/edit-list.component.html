@@ -2,47 +2,93 @@
     Lists > {{pageTitle$|async}}
 </label>
 
-<label id="title">
-    {{pageTitle$|async}}
-</label>
+<label id="title">{{pageTitle$|async}}</label>
+
 
 <div class="form-div">
 
     <form class="flex-column" [formGroup]="listForm" *ngIf="listForm" (ngSubmit)="save()">
 
-        <div>
-            <label>Caption: </label>
-            <input type="text" formControlName="caption">
-        </div>
+        <mat-form-field appearance="standard">
+            <mat-label>Caption</mat-label>
+            <input matInput type="text" formControlName="caption">
+            <mat-icon class="mat-icon-check" matSuffix *ngIf="!listForm.get('caption')?.errors">check_circle_outline
+            </mat-icon>
+            <mat-error>Required</mat-error>
+        </mat-form-field>
 
-        <div>
-            <label>Description: </label>
-            <textarea rows="3" formControlName="description"></textarea>
-        </div>
 
-        <div>
-            <label>Icon: </label>
-            <select name="icons" formControlName="imageUrl">
-                <option class="material-icons" value={{i}} *ngFor="let i of icons">
+
+
+        <mat-form-field appearance="standard">
+
+            <mat-label>Description:</mat-label>
+
+            <textarea #textArea matInput rows="3" formControlName="description" id="description">
+            </textarea>
+
+            <mat-icon class="mat-icon-check" matSuffix *ngIf="!listForm.get('description')?.errors">
+                check_circle_outline
+            </mat-icon>
+
+            <mat-hint>At least 30 charecters and 10 words</mat-hint>
+            <mat-error *ngIf="description?.errors?.required ">
+                Required
+            </mat-error>
+            <mat-error *ngIf="description?.errors?.minlength as err">
+                At least 30 charecters({{err.actualLength}}/30)
+            </mat-error>
+            <mat-error *ngIf="description?.errors?.minWords as err">
+                At least 10 words({{err.actual}}/10)
+            </mat-error>
+        </mat-form-field>
+
+
+
+
+
+        <mat-form-field appearance="standard">
+            <mat-label>Icon:</mat-label>
+
+            <mat-select name="icons" formControlName="imageUrl">
+
+                <mat-select-trigger>
+                    <mat-icon [ngStyle]="{'color': selectedColor$|async  }">
+                        {{selectedIcon$ |async }}
+                    </mat-icon>
+                </mat-select-trigger>
+
+                <mat-option [value]="i" *ngFor="let i of icons">
+                    <mat-icon [ngStyle]="{'color': selectedColor$|async  }">{{i}}</mat-icon>
+                </mat-option>
+            </mat-select>
+
+            <mat-error>Required</mat-error>
+        </mat-form-field>
+
+
+
+
+
+        <mat-form-field appearance="standard">
+            <mat-label>Color: </mat-label>
+            <mat-select name="colors" formControlName="color">
+
+                <mat-select-trigger [style.background-color]="selectedColor$|async">
+                    {{selectedColor$ |async }}
+                </mat-select-trigger>
+
+                <mat-option [style.background-color]="i" value={{i}} *ngFor="let i of colors">
                     {{i}}
-                </option>
-            </select>
-        </div>
+                </mat-option>
+            </mat-select>
+            <mat-error>Required</mat-error>
+
+        </mat-form-field>
 
         <div>
-            <label>Color: </label>
-            <select name="colors" formControlName="color">
-                <option [style.background-color]="i" value={{i}} *ngFor="let i of colors">
-                    {{i}}
-                </option>
-            </select>
+            <button mat-raised-button color="primary" id="save-btn" [disabled]="listForm.invalid">Save</button>
         </div>
-
-        <div>
-            <button id="save-btn" [disabled]="listForm.invalid">Save</button>
-        </div>
-
-
 
     </form>
 </div>

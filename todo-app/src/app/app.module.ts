@@ -10,7 +10,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CoreModule } from './core/core.module';
 import { ShareModule } from './share/share.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ShareModule,
     CoreModule,
     AppRoutingModule,
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-todo-item-presenter',
@@ -15,7 +15,14 @@ export class TodoItemPresenterComponent implements OnInit {
   @Input()
   caption:string='';
 
+  @Output()
+  itemMarked = new EventEmitter<boolean>();
+
   ngOnInit(): void {
   }
 
+  markMe(){
+    console.log("Marked");
+    this.itemMarked.emit(false);
+  }
 }

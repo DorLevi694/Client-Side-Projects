@@ -1,7 +1,8 @@
 
 #pageName {
     color: red;
-    display: grid
+    display: grid;
+    margin-left:10px;
 } 
 
 .items-area {

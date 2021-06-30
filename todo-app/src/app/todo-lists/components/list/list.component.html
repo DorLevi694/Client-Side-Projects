@@ -8,20 +8,19 @@
 
     <div *ngIf="!(deletePush$| async) else deleteTemplate">
         <label id="listDesc">{{list.description}}</label>
-
-        <div class="hover flex-row button-area">
-            <button class="action-button" id="newListBtn" [routerLink]="['/','lists',-1,'edit']">New List</button>
-            <button class="action-button" id="EditBtn" [routerLink]="['edit']">Edit</button>
-            <button class="action-button delete" id="deleteBtn" (click)="delete()">Delete</button>
+        <div class="flex-row">
+            <button mat-raised-button color="primary" class="hover" id="newListBtn"
+                [routerLink]="['/','lists',-1,'edit']">New List</button>
+            <button mat-raised-button color="primary" class="hover" id="EditBtn" [routerLink]="['edit']">Edit</button>
+            <button mat-raised-button class="delete" id="deleteBtn" (click)="delete()">Delete</button>
         </div>
 
     </div>
     <ng-template #deleteTemplate>
         <label id="deleteMsg">Are you sure you want delete the list ?</label>
-
-        <div class="flex-row button-area">
-            <button class="action-button cancel" id="cancel" (click)="cancel()">Cancel</button>
-            <button class="action-button delete" id="delete" (click)="deleteList(list.id)">Delete</button>
+        <div class="flex-row">
+            <button mat-raised-button class="cancel" id="cancel" (click)="cancel()">Cancel</button>
+            <button mat-raised-button class="delete" id="delete" (click)="deleteList(list.id)">Delete</button>
         </div>
     </ng-template>
 
@@ -29,18 +28,44 @@
 
 <div class="items-area flex-col">
 
-    <app-todo-item-presenter *ngFor="let item of (items$|async)" [isCompleted]="item.isCompleted"
-        [caption]="item.caption" (click)="endTask(item)">
+    <app-todo-item-presenter 
+        *ngFor="let item of (items$|async)" 
+        [isCompleted]="item.isCompleted"
+        [caption]="item.caption" 
+        (itemMarked)="endTask(item)">
     </app-todo-item-presenter>
 
-    <div id="newItem" class="item-line flex-row">
-        <mat-icon color="red" class="pointer">check_box_outline_blank</mat-icon>
-        <input type="text margin" [formControl]="newItemControl" placeholder=" Add new task">
-        <button 
-                [disabled]="newItemControl.invalid" 
-                (click)="addItemToList()">
-            <mat-icon >add</mat-icon>
+
+
+    
+    <div id="newItem" class="margin flex-row">
+      
+        <!-- <input type="text" [formControl]="newItemControl" placeholder=" Add new task"> -->
+        <mat-icon>check_box_outline_blank</mat-icon>
+
+        <mat-form-field>
+            <input type="text" matInput [formControl]="newItemControl" placeholder=" Add new task">
+            <mat-icon [style.color]="'green'" matSuffix *ngIf="!newItemControl?.errors">check_circle_outline</mat-icon>
+
+         
+            <mat-hint>At least 10 charecters and 3 words</mat-hint>
+
+            <mat-error *ngIf="newItemControl?.errors?.minlength as err">
+                At least 10 charecters( {{err.actualLength}} /10)      
+            </mat-error>
+            <mat-error *ngIf="newItemControl?.errors?.minWords as err">
+                At least 3 words({{err.actual}}/3)
+            </mat-error>
+            
+        </mat-form-field>
+
+
+        <button mat-icon-button 
+            [disabled]="newItemControl.invalid" 
+            (click)="addItemToList()">
+            <mat-icon>add</mat-icon>
         </button>
+
     </div>
 
 </div>

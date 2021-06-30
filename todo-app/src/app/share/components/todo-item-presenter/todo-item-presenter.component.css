@@ -1,21 +1,11 @@
 
 :host {
     display: grid;
-}
-
-.item-line {
-    margin-top: 10px;
-}
-
-
-.pointer {
     cursor: pointer;
 }
 
-
 .item-desc {
-    height: 100%;
-    display: grid;
+    padding-top: 10px;
 }
 
 .completed{

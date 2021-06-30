@@ -1,8 +1,13 @@
 export const COLORS_NAMES = [
-    'blue',
-    'red',
+    'lightgreen',
+    'lightpink',
+    'lightsalmon',
+    'lightskyblue',
+    'lightblue',
+    'lightseagreen',
+    'lightslategray',
     'green',
+    'red',
     'yellow',
-    'black', 
-    'purple'
+    'broun'
 ];

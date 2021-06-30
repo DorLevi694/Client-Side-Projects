@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HasListGuard } from '../guards/has-list.guard';
-import { ListExistGuard } from '../guards/list-exist.guard';
-import { NewListGuard } from '../guards/new-list.guard';
+import { HasListGuard } from '../core/guards/has-list.guard';
+import { ListExistGuard } from '../core/guards/list-exist.guard';
+import { NewListGuard } from '../core/guards/new-list.guard';
 import { EditListComponent } from './components/edit-list/edit-list.component';
 import { ListComponent } from './components/list/list.component';
 import { ListsComponent } from './components/lists/lists.component';

@@ -7,11 +7,10 @@
     <h5>{{myDate | date: 'shortDate' }}</h5>
 
     <div id="buttons" class="flex-row">
-        <button mat-button color="accent" [routerLink]="['/','lists','-1','edit']">Create new list</button>
-        <button mat-raised-button   [routerLink]="['/','lists']">View all lists</button>
-        <button mat-flat-button color="warn" [routerLink]="['/','items']">View all items</button>
+        <button mat-raised-button	  color="primary"  [routerLink]="['/','lists','-1','edit']">Create new list</button>
+        <button mat-raised-button	  color="primary"  [routerLink]="['/','lists']">View all lists</button>
+        <button mat-raised-button     color="primary"  [routerLink]="['/','items']">View all items</button>
     </div>
-
 </div>
 
 <div id="summary" class="flex-row">

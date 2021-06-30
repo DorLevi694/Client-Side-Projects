@@ -2,17 +2,15 @@
     Active Items
 </label>
 
-
-
-
 <div class="items-area flex-col">
 
-    <app-todo-item-presenter *ngFor="let item of (activeItems$|async)" 
-        [isCompleted]="false"
+    <app-todo-item-presenter 
+        *ngFor="let item of (activeItems$|async)" 
+        [isCompleted]="false" 
         [caption]="item.caption"
-        (click)="endTask(item)">
+        (itemMarked)="endTask(item)">
     </app-todo-item-presenter>
 
 </div>
 
-
+<!-- (click)="endTask(item)"  -->
